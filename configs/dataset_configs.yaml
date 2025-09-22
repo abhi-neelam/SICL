@@ -1,0 +1,191 @@
+datasets:
+  utd_mhad:
+    n_classes: 27
+    n_subjects: 8
+    inertial: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 6
+      out_size: 27
+    skeleton: # These will be passed as kwargs to the LightningModule class for skeleton models.
+      input_channels: 3
+      n_joints: 20
+      output_size: 27
+      dataset: utd_mhad
+      center_joint: 2
+    main_metric: accuracy
+    class_names: ["swipe_left", "swipe_right", "wave", "clap", "throw", "arm_cross",
+                  "basketball_shoot", "draw_x", "draw_circle_cw", "draw_circle_ccw",
+                  "draw_triangle", "bowling", "boxing", "baseball_swing",
+                  "tennis_swing", "arm_curl", "tennis_serve", "push", "knock",
+                  "catch", "pickup_throw", "jog", "walk", "sit2stand", "stand2sit",
+                  "lunge", "squat"]
+    protocols:
+      cross_subject:
+        train:
+          subject: [1, 3, 5, 7]
+        val:
+          subject: [1, 3, 5, 7]
+        test:
+          subject: [2, 4, 6, 8]
+
+  mmact:
+    n_classes: 36
+    n_subjects: 20
+    inertial: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 12
+      out_size: 36
+    skeleton: # These will be passed as kwargs to the LightningModule class for skeleton models.
+      input_channels: 2
+      n_joints: 17
+      output_size: 36
+      dataset: mmact
+      center_joint: 0
+    main_metric: accuracy
+    class_names: ["carrying", "checking_time", "closing", "crouching", "entering", "exiting",
+                  "fall", "jumping", "kicking", "loitering", "looking_around", "opening",
+                  "picking_up", "pointing", "pulling", "pushing", "running", "setting_down",
+                  "standing", "talking", "talking_on_phone", "throwing", "transferring_object",
+                  "using_phone", "walking", "waving_hand", "drinking", "pocket_in", "pocket_out",
+                  "sitting", "sitting_down", "standing_up", "using_pc", "using_phone", "carrying_heavy",
+                  "carrying_light"]
+    protocols:
+      cross_subject:
+        train:
+          subject: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        val:
+          subject: [13, 14, 15]
+        test:
+          subject: [17, 18, 19, 20]
+      cross_scene:
+        train:
+          scene: [1, 3, 4]
+          subject: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        val:
+          scene: [1, 3, 4]
+          subject: [17, 18, 19, 20]
+        test:
+          scene: [2]
+
+
+  l1:
+    n_classes: 16
+    n_subjects: 20
+    inertial: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 9
+      out_size: 16
+    emg: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 1 #TODO: Check this
+      out_size: 16
+    gaze: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 2
+      out_size: 16
+    insole: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 9  # TODO: Check this
+      out_size: 16
+    bio: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 5
+      out_size: 16
+    skeleton: # These will be passed as kwargs to the LightningModule class for skeleton models.
+      input_channels: 3
+      n_joints: 20
+      output_size: 16
+      dataset: l1
+      center_joint: 2
+    main_metric: accuracy
+    class_names: ['Carrying object',
+'Playing video game',
+'Reading',
+'Sleeping',
+'Exercising',
+'Using handheld smart devices',
+'Watching TV',
+'Working on a computer',
+ 'Writing',
+ 'Cleaning dishes',
+'Dining',
+'Making a cup of coffee in coffee maker',
+'Making a cup of instant coffee',
+'Making a salad',
+'Making pancake' ,
+'Cleaning the kitchen' 
+ ]
+    protocols:
+      cross_subject:
+        train:
+          subject: [1,2,3,4,5,6,7,8,9,11,12,13,14,15,17,18,20]
+        val:
+          subject: [1,2,3,4,5,6,7,8,9,11,12,13,14,15,17,18,20]
+        test:
+          subject: [10,16,19]
+
+
+  l2:
+    n_classes: 42
+    n_subjects: 20
+    inertial: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 9
+      out_size: 42
+    emg: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 2
+      out_size: 42
+    gaze: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 2
+      out_size: 42
+    insole: # These will be passed as kwargs to the LightningModule class for inertial models
+      in_channels: 18
+      out_size: 42
+    bio: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 5
+      out_size: 42
+    skeleton: # These will be passed as kwargs to the LightningModule class for skeleton models.
+      input_channels: 3
+      n_joints: 20
+      output_size: 25
+      dataset: l2
+      center_joint: 2
+    main_metric: accuracy
+    class_names: ['Bake pancake', 'Boxing workout', 'Carrying Big object', 'Carrying Heavy object', 'Carrying Light object', 'Carrying Small object', 'Cleaning Countertops', 'Cleaning Floor', 'Get ingredients', 'Get joystick', 'Get marker', 'Get paper', 'Get pen', 'Having a meal', 'Jumping jacks', 'Jumping rope', 'Mix ingredients', 'Play news', 'Play sport', 'Playing on TV', 'Playing on computer', 'Prep ingredients', 'Prepare device', 'Prepare for activity', 'Prepare kitchen appliance', 'Reading at desk', 'Reading instruction', 'Reading on couch', 'Rest', 'Setting a table', 'Simple Jumping', 'Squat', 'Take out Kitchen and cooking tools', 'Take out smartphone', 'Taking a Quiz', 'Throw out leftovers', 'Typing', 'Using Smartphone', 'Using Tablet', 'Virtual meeting', 'Washing and Drying dishes with hands', 'Yoga stretch']
+    protocols:
+      cross_subject:
+        train:
+          subject: [1,2,3,4,5,6,7,9,11,12,13,14,17,18]
+        val:
+          subject: [1,2,3,4,5,6,7,9,11,12,13,14,17,18]
+        test:
+          subject: [10,16,19,15,20, 8]
+
+
+
+  l3:
+    n_classes: 97
+    n_subjects: 20
+    inertial: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 9
+      out_size: 97
+    emg: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 2
+      out_size: 97
+    gaze: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 2
+      out_size: 97
+    insole: # These will be passed as kwargs to the LightningModule class for inertial models
+      in_channels: 18
+      out_size: 97
+    bio: # These will be passed as kwargs to the LightningModule class for inertial models.
+      in_channels: 5
+      out_size: 97
+    skeleton: # These will be passed as kwargs to the LightningModule class for skeleton models.
+      input_channels: 3
+      n_joints: 20
+      output_size: 97
+      dataset: l3
+      center_joint: 2
+    main_metric: accuracy
+    class_names: ['add batter', 'add bean', 'add carrot', 'add coffee', 'add cucumber', 'add flour', 'add lemon', 'add lettuce', 'add milk', 'add sugar', 'add water', 'boxing workout', 'carrying bags', 'check cabinet', 'check pancake', 'check refrigerator', 'clean with broom', 'clean with mop', 'clean with paper towel', 'clean with towel', 'conversation on the phone', 'crack egg', 'drink', 'dry dishes', 'dry hands', 'eat', 'empty content in a container', 'fill coffee machine with water', 'fill kettle with water', 'get can of bean', 'get coffee', 'get cup', 'get filter', 'get instant coffee', 'get joystick', 'get magazine or book or paper', 'get magazineor book', 'get pan', 'get paperor book', 'get spoon', 'get writing tool', 'jumping jacks', 'jumping rope', 'lay down', 'load dishwasher', 'open can of bean', 'open softwareor platform', 'pick up box', 'place cup', 'place dishes', 'place drink', 'place filter', 'place food', 'place pan', 'place silverware', 'play news', 'play sport', 'playing reaction game', 'playing speed game', 'prepare device', 'prepare for activity', 'presentor talk', 'put away items or bags', 'put down bags', 'put down box', 'put in cabinets', 'put items in cabinet', 'put items in refrigerator', 'read', 'read magazineor book', 'read paperor book', 'rinse dishes', 'rinse hands', 'rinse salad ingredients', 'scroll on the phone', 'scroll on the tablet', 'simple jumping', 'squat', 'stir', 'stir pancake ingredients', 'take out container', 'take out items from bag', 'take out kitchen and cooking tools', 'take out pancake ingredients', 'take out salad ingredients', 'turn on coffee machine', 'turn on dishwasher', 'turn on kettle', 'turn on stove', 'type', 'unloading dishwasher', 'use blanket', 'waiting', 'wake up', 'walk with bags', 'walk with box', 'yoga stretch']
+    protocols:
+      cross_subject:
+        train:
+          subject: [1,2,3,4,5,6,7,8,9,11,12,13,17]
+        val:
+          subject: [1,2,3,4,5,6,7,8,9,11,12,13,17]
+        test:
+          subject: [10,14,16,19,15,20,18]

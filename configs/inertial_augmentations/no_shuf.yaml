@@ -1,0 +1,24 @@
+jittering:
+  apply: true
+  parameters:
+    sigma: 1
+  probability: 1
+scaling:
+  apply: true
+  parameters:
+    sigma: 1
+  probability: 0.75
+rotation:
+  apply: true
+  parameters: {}
+  probability: 0.75
+permutation:
+  apply: true
+  parameters:
+    max_segments: 2
+  probability: 0.75
+channel_shuffle:
+  apply: false
+  parameters: {}
+  probability: 0.75
+
