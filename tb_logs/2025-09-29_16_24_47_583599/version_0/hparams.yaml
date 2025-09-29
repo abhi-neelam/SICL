@@ -1,0 +1,9 @@
+modality: inertial
+hidden:
+- 256
+- 128
+batch_size: 128
+temperature: 0.05
+n_views: 2
+optimizer_name_ssl: adam
+lr: 0.001

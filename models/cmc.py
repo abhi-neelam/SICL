@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from pytorch_lightning.core.module import LightningModule
+from pytorch_lightning.core import LightningModule
 from torch import nn
 import numpy as np
 from models.mlp import ProjectionMLP

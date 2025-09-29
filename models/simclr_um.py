@@ -1,8 +1,8 @@
 from math import e
 import torch
 import torch.nn.functional as F
-from pl_bolts.optimizers.lars import LARS
-from pytorch_lightning.core.module import LightningModule
+from timm.optim.lars import Lars
+from pytorch_lightning.core import LightningModule
 from torch import nn
 import numpy as np
 from models.mlp import ProjectionMLP
@@ -486,12 +486,12 @@ class SimCLRUnimodal_original(LightningModule):
             }
 
         elif self.optimizer_name_ssl.lower() == 'lars':
-            optimizer = LARS(
+            optimizer = Lars(
                 self.parameters(),
                 self.lr,
                 momentum=0.9,
                 weight_decay=1e-6,
-                trust_coefficient=0.001
+                trust_coeff=0.001
             )
 
             return {
@@ -626,12 +626,12 @@ class SimCLRUnimodal(LightningModule):
             }
 
         elif self.optimizer_name_ssl.lower() == 'lars':
-            optimizer = LARS(
+            optimizer = Lars(
                 self.parameters(),
                 self.lr,
                 momentum=0.9,
                 weight_decay=1e-6,
-                trust_coefficient=0.001
+                trust_coeff=0.001
             )
             
             warmup_epochs = 10  # Warm-up period

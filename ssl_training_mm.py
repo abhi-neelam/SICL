@@ -12,7 +12,6 @@ from utils.training_utils import *
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
-    parser = Trainer.add_argparse_args(parser)
 
     # Dataset and experiment config paths.
     parser.add_argument('--experiment_config_path', required=True)

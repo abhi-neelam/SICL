@@ -116,7 +116,7 @@ def setup_wandb_logger(experiment_info, modality, dataset, experiment_id, entity
 
 
 def setup_loggers(logger_names=['tensorboard', 'wandb'], tb_dir=None, experiment_info=None, modality=None, dataset=None, 
-        experiment_id=None, entity='yarici', approach='supervised', experiment_config_path=None):
+        experiment_id=None, entity='aneelam-cal-state-university-northridge', approach='supervised', experiment_config_path=None):
     loggers = []
     loggers_dict = {}
 

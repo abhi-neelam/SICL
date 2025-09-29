@@ -1,4 +1,4 @@
-from pytorch_lightning.core.module import LightningModule
+from pytorch_lightning.core import LightningModule
 from torch import nn
 import torch
 

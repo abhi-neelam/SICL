@@ -10,7 +10,6 @@ from models.simclr_um import SimCLRUnimodal
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
-    parser = Trainer.add_argparse_args(parser)
 
     # configs paths
     parser.add_argument('--experiment_config_path', required=True)
@@ -102,7 +101,7 @@ def ssl_pre_training(args, modality, cfg, dataset_cfg, experiment_id, loggers_li
         experiment_id         = experiment_id,
     )
 
-    trainer = Trainer.from_argparse_args(args=args, logger=loggers_list, gpus=1, deterministic=True, max_epochs=num_epochs, default_root_dir='logs', 
+    trainer = Trainer(logger=loggers_list, accelerator="gpu", deterministic=True, max_epochs=num_epochs, default_root_dir='logs', 
         val_check_interval = 0.0 if 'val' not in dataset_cfg['protocols'][args.protocol] else 1.0, callbacks=callbacks,  enable_progress_bar=False )
 
     trainer.fit(model, datamodule)
@@ -149,7 +148,7 @@ def fine_tuning(args, modality, cfg, dataset_cfg, encoder, loggers_list, loggers
     print("++++++++++++++++++++++++++++++++++++++") 
     print("++++++++++++++++++++++++++++++++++++++")
 
-    trainer = Trainer.from_argparse_args(args=args, logger=loggers_list, gpus=1, deterministic=True, max_epochs=num_epochs, default_root_dir='logs', 
+    trainer = Trainer(logger=loggers_list, accelerator="gpu", deterministic=True, max_epochs=num_epochs, default_root_dir='logs', 
         val_check_interval = 0.0 if 'val' not in dataset_cfg['protocols'][args.protocol] else 1.0, callbacks=callbacks, enable_progress_bar=False )
 
     trainer.fit(model, datamodule)
