@@ -49,6 +49,7 @@ var/
 **/saved/
 **/datasets/
 **/checkpoints/
+**/tb_logs/
 
 # editor, os cache directory
 .vscode/
@@ -67,5 +68,3 @@ venv.bak/
 
 # Wandb
 wandb/
-
-__pycache__/
