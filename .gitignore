@@ -50,6 +50,7 @@ var/
 **/datasets/
 **/checkpoints/
 **/tb_logs/
+**/model_weights/
 
 # editor, os cache directory
 .vscode/
